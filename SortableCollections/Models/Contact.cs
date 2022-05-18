@@ -1,4 +1,5 @@
-﻿namespace SortableCollections.Models
+﻿
+namespace SortableCollections.Models
 {
     public class Contact
     {

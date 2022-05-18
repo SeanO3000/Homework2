@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SortableCollections.Models.Contact>
 
 @{
-    ViewData["Title"] = "Contacts";
+    ViewData["Title"] = "Index";
 }
 
 <!DOCTYPE html>
@@ -17,19 +17,19 @@
             <thead>
                 <tr>
                         <th>
-                            <a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParm"]">@Html.DisplayNameFor(model => model.Id)</a>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["Id"]">@Html.DisplayNameFor(model => model.Id)</a>
                         </th>
                         <th>
-                            <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Name)</a>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["Name"]">@Html.DisplayNameFor(model => model.Name)</a>
                         </th>
                         <th>
-                            <a asp-action="Index" asp-route-sortOrder="@ViewData["CitySortParm"]">@Html.DisplayNameFor(model => model.City)</a>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["City"]">@Html.DisplayNameFor(model => model.City)</a>
                         </th>
                         <th>
-                            <a asp-action="Index" asp-route-sortOrder="@ViewData["StateSortParm"]">@Html.DisplayNameFor(model => model.State)</a>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["State"]">@Html.DisplayNameFor(model => model.State)</a>
                         </th>
                         <th>
-                            <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneSortParm"]">@Html.DisplayNameFor(model => model.Phone)</a>
+                            <a asp-action="Index" asp-route-sortOrder="@ViewData["Phone"]">@Html.DisplayNameFor(model => model.Phone)</a>
                         </th>
                     <th></th>
                 </tr>

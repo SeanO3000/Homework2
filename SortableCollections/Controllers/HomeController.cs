@@ -16,6 +16,12 @@ namespace SortableCollections.Controllers
 
         public async Task<IActionResult> Index(string sortOrder)
         {
+            ViewData["Id"] = string.IsNullOrEmpty(sortOrder) ? "id" : "";
+            ViewData["Name"] = string.IsNullOrEmpty(sortOrder) ? "name" : "";
+            ViewData["City"] = string.IsNullOrEmpty(sortOrder) ? "city" : "";
+            ViewData["State"] = string.IsNullOrEmpty(sortOrder) ? "state" : "";
+            ViewData["Phone"] = string.IsNullOrEmpty(sortOrder) ? "phone" : "";
+
             var contacts = new[]
             {
                 new Contact{Id = 1, Name="dave", City="Seattle", State="WA", Phone="123"},
@@ -24,43 +30,39 @@ namespace SortableCollections.Controllers
                 new Contact{Id = 4, Name="cathy", City="Dallas", State="TX", Phone="456"},
             };
 
-            ViewData["IdSortParam"] = sortOrder == "Id";
-            ViewData["NameSortParam"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["DateSortParam"] = sortOrder == "Date" ? "date_desc" : "Date";
-
             if (sortOrder != null)
             {
                 switch (sortOrder.ToLower())
                 {
                     case "id":
                         {
-                            contacts = contacts.OrderByDescending(c => c.Id);
+                            contacts = contacts.OrderByDescending(c => c.Id).ToArray();
                             break;
                         }
                     case "name":
                         {
-                            contacts = contacts.OrderBy(c => c.Name);
+                            contacts = contacts.OrderBy(c => c.Name).ToArray();
                             break;
                         }
                     case "city":
                         {
-                            contacts = contacts.OrderBy(c => c.City);
+                            contacts = contacts.OrderBy(c => c.City).ToArray();
                             break;
                         }
                     case "state":
                         {
-                            contacts = contacts.OrderBy(c => c.State);
+                            contacts = contacts.OrderBy(c => c.State).ToArray();
                             break;
                         }
                     case "phone":
                         {
-                            contacts = contacts.OrderBy(c => c.Phone);
+                            contacts = contacts.OrderBy(c => c.Phone).ToArray();
                             break;
                         }
                 }
             }
 
-            return View(await contacts.AsNotracking().ToListAsync());
+            return View(contacts);
         }
 
         public IActionResult Privacy()
